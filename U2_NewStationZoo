@@ -1,0 +1,53 @@
+note
+	description: "Introduction to Traffic."
+
+class
+	PREVIEW
+
+inherit
+	ZURICH_OBJECTS
+
+feature -- Explore Zurich
+
+	explore
+			-- Modify the map.
+		local
+			i : INTEGER
+		do
+			--A new Station called Zoo added @ corrdinates 1800,-500
+			Zurich.add_station ("Zoo", 1800, -500)
+			--The new Station Zoo connected with the line 6
+			Zurich.connect_station (6, "Zoo")
+			--Map updated otherwise we won't be able to see some changes
+			Zurich_map.update
+
+
+			--In order to get some attention here we make a loop for blinking the new Station
+			--Loop will be done 100 times and takes 1'
+			from i := 1
+				until i>100
+					loop
+						Zurich_map.station_view (Zurich.station ("Zoo")).highlight
+						wait(1)
+						Zurich_map.station_view (Zurich.station ("Zoo")).unhighlight
+						wait(1)
+						--Loop counter incremented
+						i := i+1
+				end
+
+
+				--Don't look, for dummies!
+
+				--Zurich_map.station_view (Zurich.station ("Zoo")).highlight
+				--wait(3)
+				--Zurich_map.station_view (Zurich.station ("Zoo")).unhighlight
+				--wait(3)
+				--Zurich_map.station_view (Zurich.station ("Zoo")).highlight
+				--wait(3)
+				--Zurich_map.station_view (Zurich.station ("Zoo")).unhighlight
+				--wait(3)
+				--Zurich_map.station_view (Zurich.station ("Zoo")).highlight
+				--wait(3)
+				--Zurich_map.station_view (Zurich.station ("Zoo")).unhighlight
+		end
+end
