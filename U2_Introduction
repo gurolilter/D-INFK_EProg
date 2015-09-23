@@ -1,0 +1,26 @@
+class
+	APPLICATION
+
+create
+	execute
+
+feature {NONE} -- Initialization
+
+	execute
+			-- Run application.
+		do
+			-- Add your code here.
+      --This program prints NAME+AGE+MT+CAT? to CMDline
+			io.put_string("Name: ILTER EROL GUROL")
+			io.new_line
+			io.put_string ("Age: ")
+			io.put_integer (22)
+			io.new_line
+			io.put_string ("Mother Toungue: Turkish")
+			io.new_line
+			io.put_string ("Has A Cat: ")
+			io.put_boolean (False)
+			io.new_line
+		end
+
+end
